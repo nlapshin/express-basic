@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+function userAuth() {
+
+}
+
+router.use(userAuth);
+
 router.get('/', (req, res) => {
   res.send('Список пользователей');
 });
