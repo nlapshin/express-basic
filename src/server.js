@@ -19,6 +19,8 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   if (req.headers.authorization === 'token') {
     console.log('ok');
+
+    req.user = { id: 1, username: 'test' };
     next();
   } else {
     res.sendStatus(401);
@@ -37,6 +39,8 @@ app.get('/hello/json', (req, res) => {
 app.get('/hello/:name',
   (req, res, next) => {
     console.log('callback 1');
+
+    console.log(req.user);
     
     next();
   },
